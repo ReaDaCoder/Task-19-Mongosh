@@ -17,3 +17,21 @@ LibraryDB> db.BooksCollection.insertMany([{ _id: 1, title: "1984", author_id: 1,
     '9': 10
   }
 }
+
+
+LibraryDB> db.AthorsCollection.insertMany([{ _id: 1, name: "George Orwell", nationality: "British", birth_year: 1903, death_year: 1950 }, { _id: 2, name: "Harper Lee", nationality: "American", birth_year: 1926, death_year: 2016 }, { _id: 3, name: "F. Scott Fitzgerald", nationality: "American", birth_year: 1896, death_year: 1940 }, { _id: 4, name: "Aldous Huxley", nationality: "British", birth_year: 1894, death_year: 1963 }, { _id: 5, name: "J.D. Salinger", nationality: "American", birth_year: 1919, death_year: 2010 }, { _id: 6, name: "Herman Melville", nationality: "American", birth_year: 1819, death_year: 1891 }, { _id: 7, name: "Jane Austen", nationality: "British", birth_year: 1775, death_year: 1817 }, { _id: 8, name: "Leo Tolstoy", nationality: "Russian", birth_year: 1828, death_year: 1910 }, { _id: 9, name: "Fyodor Dostoevsky", nationality: "Russian", birth_year: 1821, death_year: 1881 }, { _id: 10, name: "J.R.R. Tolkien", nationality: "British", birth_year: 1892, death_year: 1973 }])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': 1,
+    '1': 2,
+    '2': 3,
+    '3': 4,
+    '4': 5,
+    '5': 6,
+    '6': 7,
+    '7': 8,
+    '8': 9,
+    '9': 10
+  }
+}
