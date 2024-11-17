@@ -460,3 +460,117 @@ LibraryDB> db.BooksCollection.find()
     available: true
   }
 ]
+
+
+
+LibraryDB> db.BooksCollection.find({published_year: {$gt:1950}})
+[
+  {
+    _id: 2,
+    title: 'To Kill a Mockingbird',
+    author_id: 2,
+    genres: [ 'Southern Gothic', 'Bildungsroman' ],
+    published_year: 1960,
+    available: true
+  },
+  {
+    _id: 5,
+    title: 'The Catcher in the Rye',
+    author_id: 5,
+    genres: [ 'Realist Novel', 'Bildungsroman' ],
+    published_year: 1951,
+    available: true
+  }
+]
+
+LibraryDB> db.AthorsCollection.find({nationality:{$eq:"American"}})
+[
+  {
+    _id: 2,
+    name: 'Harper Lee',
+    nationality: 'American',
+    birth_year: 1926,
+    death_year: 2016
+  },
+  {
+    _id: 3,
+    name: 'F. Scott Fitzgerald',
+    nationality: 'American',
+    birth_year: 1896,
+    death_year: 1940
+  },
+  {
+    _id: 5,
+    name: 'J.D. Salinger',
+    nationality: 'American',
+    birth_year: 1919,
+    death_year: 2010
+  },
+  {
+    _id: 6,
+    name: 'Herman Melville',
+    nationality: 'American',
+    birth_year: 1819,
+    death_year: 1891
+  }
+]
+
+LibraryDB> db.BooksCollection.updateMany({}, {$set: {available:true}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 8,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+LibraryDB> db.BooksCollection.find({available:true, published_year:{$gt:1950}})
+[
+  {
+    _id: 2,
+    title: 'To Kill a Mockingbird',
+    author_id: 2,
+    genres: [ 'Southern Gothic', 'Bildungsroman' ],
+    published_year: 1960,
+    available: true
+  },
+  {
+    _id: 5,
+    title: 'The Catcher in the Rye',
+    author_id: 5,
+    genres: [ 'Realist Novel', 'Bildungsroman' ],
+    published_year: 1951,
+    available: true
+  }
+]
+
+LibraryDB> db.AthorsCollection.find({name: {$regex:"George"}})
+[
+  {
+    _id: 1,
+    name: 'George Orwell',
+    nationality: 'British',
+    birth_year: 1903,
+    death_year: 1950
+  }
+]
+
+LibraryDB> db.BooksCollection.updateOne({published_year:1869},{$inc:{published_year:1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+LibraryDB> db.BooksCollection.find({published_year:1870})
+[
+  {
+    _id: 8,
+    title: 'War and Peace',
+    author_id: 8,
+    genres: [ 'Historical Novel' ],
+    published_year: 1870,
+    available: true
+  }
+]
